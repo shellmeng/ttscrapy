@@ -5,8 +5,23 @@
 
 #coding:utf-8
 import sys
+
+import json
 reload(sys)
 sys.setdefaultencoding('utf-8')
+class file2json(object):
+    	def __init__(self):
+		self.file=open('newsfromsina.txt','w+')
+
+	def process_item(self, item, spider):
+		itemdic={}
+		itemdic['title']=item['title']
+		itemdic['body']=item['body']
+		out=json.dumps(itemdic, ensure_ascii=False)
+		self.file.write(out)
+		self.file.write("\n")
+
+
 class fileStore(object):
 
     	def __init__(self):

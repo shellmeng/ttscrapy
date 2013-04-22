@@ -10,7 +10,8 @@ BOT_NAME = 'tt'
 
 SPIDER_MODULES = ['tt.spiders']
 NEWSPIDER_MODULE = 'tt.spiders'
-ITEM_PIPELINES=['tt.pipelines.fileStore']
+#ITEM_PIPELINES=['tt.pipelines.fileStore']
+ITEM_PIPELINES=['tt.pipelines.file2json']
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tt (+http://www.yourdomain.com)'
