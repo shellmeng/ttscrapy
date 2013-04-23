@@ -20,14 +20,14 @@ class SinaSpider(CrawlSpider):
 
 
 	def parse(self,response):
-		print 'yes in pares ','0'*100
+		#print 'yes in pares ','0'*100
 		hxs=HtmlXPathSelector(response)
 
 		newurls=hxs.select('//a/@href').extract()
 
 		items=[]
 		usefulUrls=[]
-		print 'new urls  '+'*'*35
+#		print 'new urls  '+'*'*35
 		rule=r'http://.*\.sina\.com\.cn.+\.shtml'
 		#rule=r'http://*.sina.com.cn/*.shtml'
 
