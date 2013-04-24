@@ -53,7 +53,7 @@ db=server[dbname]
 line=(codecs.open(sys.argv[1],'r','utf-8').read())
 
 for l in line.split('\n'):
-	docs=json.loads(l,object_hook=_decode_dict)
+	docs=json.loads(l)#,object_hook=_decode_dict)
 	print docs
 	db.update(docs)
 
