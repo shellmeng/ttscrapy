@@ -14,8 +14,12 @@ sys.setdefaultencoding('utf-8')
 class file2json(object):
     	def __init__(self):
 		self.file=open('newsfromsina.txt','w+')
-		self.server=couchdb.Server('http://127.0.0.1:5984')
-		self.db=self.server["t"]
+	#	self.server=couchdb.Server('http://127.0.0.1:5984')
+	#	try:
+	#		self.db=self.server.create("sports")
+	#	except:
+	#		pass
+	#	self.db=self.server["sports"]
 
 	def process_item(self, item, spider):
 		itemdic={}
@@ -29,10 +33,9 @@ class file2json(object):
 		itemdic['title']=item['title']
 		itemdic['body']=item['body']
 		out=json.dumps(itemdic, ensure_ascii=False)
-		print "((((((((((((((((((((((((((((((((((((((((((((((((((((((((((("
-		print out
-		self.db.update(json.loads(out))
-		#self.file.write(out.encode('utf-8'))
+	#	self.db.update(json.loads(out.encode('utf-8')))
+		self.file.write(out)
+		self.file.write(",\n")
 		#self.file.write(out)
 		#self.file.write('\n')
 
